@@ -38,3 +38,4 @@
 
 #### Примеры
 ![image](screenshots/1.png)
+![image](screenshots/2.png)
