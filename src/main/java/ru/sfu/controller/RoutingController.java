@@ -1,7 +1,5 @@
 package ru.sfu.controller;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,9 +24,6 @@ public class RoutingController {
 
     @Autowired
     CoffeeDao dao;
-
-//    @Autowired
-//    AlertService alertService;
 
     /** Routing the main page */
     @GetMapping(value="/")
@@ -59,9 +54,6 @@ public class RoutingController {
             return "add";
         }
         dao.add(coffeeMachine);
-//        alertService.sendAlert(new Alert(
-//            "Admin", "New coffee machine has been added on " +
-//                LocalDateTime.now()));
         return "redirect:/";
     }
 
@@ -98,9 +90,6 @@ public class RoutingController {
             return "edit";
         }
         dao.update(coffeeMachine);
-//        alertService.sendAlert(new Alert(
-//            "Admin", "Coffee machine ID" + id +
-//            " has been updated on " + LocalDateTime.now()));
         return "redirect:/";
     }
 
@@ -109,9 +98,6 @@ public class RoutingController {
     public String del(@PathVariable("id") String id, ModelMap model) {
         try {
             dao.delete(Integer.parseInt(id));
-//            alertService.sendAlert(new Alert(
-//                "Admin", "Coffee machine ID" + id +
-//                " has been removed on " + LocalDateTime.now()));
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
@@ -123,9 +109,6 @@ public class RoutingController {
     public String buy(@PathVariable("id") String id, ModelMap model) {
         try {
             dao.buy(Integer.parseInt(id));
-//            alertService.sendAlert(new Alert(
-//                "Admin", "Someone wants to buy a coffee machine ID" +
-//                id + " on " + LocalDateTime.now()));
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
